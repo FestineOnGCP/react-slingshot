@@ -15,7 +15,7 @@ jobs:
       - save_cache:
           key: my-dependencies
           paths:
-            - node_modules
+            - ./node_modules
   
   test:
     executor: my-exec-env
