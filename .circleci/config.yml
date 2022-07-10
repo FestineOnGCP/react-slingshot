@@ -4,7 +4,7 @@ executors:
   my-exec-env:
     docker:
       - image: circleci/node:13.8.0
-    working_directory: /tmp
+    working_directory: /src
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
       - save_cache:
           key: my-dependencies
           paths:
-            /tmp/node_modules
+            /src/node_modules
   
   test:
     executor: my-exec-env
