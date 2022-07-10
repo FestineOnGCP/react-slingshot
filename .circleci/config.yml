@@ -36,7 +36,7 @@ jobs:
           command: echo Vulnerability Found
           when: on_fail
 
-workflow:
+workflows:
   default:
     jobs:
       - build
