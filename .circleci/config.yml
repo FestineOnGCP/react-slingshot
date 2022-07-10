@@ -10,6 +10,7 @@ jobs:
     executor: my-exec-env
     steps:
       - checkout
+      - run: npm install
       - run: npm run lint
       - save_cache:
           key: my-dependencies
