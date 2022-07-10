@@ -1,0 +1,35 @@
+version: 2.1
+
+executors:
+  my-exec-env:
+    docker:
+      image: circleci/node:13.8.0
+      working_directory: /tmp
+
+jobs:
+  build:
+    executor: my-exec-env
+    steps:
+      - checkout
+      - run: npm run lint
+      - save_cache:
+        key: my-dependencies
+        paths:
+          /tmp/node_modules
+  
+  test:
+    executor: my-exec-env
+    steps:
+      - checkout
+      - run: npm run test
+      - restore_cache:
+          keys:
+            - my-dependencies
+  
+  analyse:
+    executor: my-exec-env
+    steps:
+      - checkout
+      - run: npm audit
+      - run: echo Vulnerability Found
+          when: on_fail
