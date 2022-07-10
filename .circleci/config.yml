@@ -31,5 +31,7 @@ jobs:
     steps:
       - checkout
       - run: npm audit
-      - run: echo Vulnerability Found
+      - run:
+          name: Tell of vulnerability
+          command: echo Vulnerability Found
           when: on_fail
