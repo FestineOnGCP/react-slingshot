@@ -13,9 +13,9 @@ jobs:
       - checkout
       - run: npm run lint
       - save_cache:
-        key: my-dependencies
-        paths:
-          /tmp/node_modules
+          key: my-dependencies
+          paths:
+            /tmp/node_modules
   
   test:
     executor: my-exec-env
