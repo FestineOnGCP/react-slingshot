@@ -31,7 +31,7 @@ jobs:
     executor: my-exec-env
     steps:
       - checkout
-       - run: npm audit fix
+      - run: npm audit fix
       - run:
           name: Tell of vulnerability
           command: echo Vulnerability Found
