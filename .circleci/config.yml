@@ -21,16 +21,17 @@ jobs:
     executor: my-exec-env
     steps:
       - checkout
-      - run: npm run test
       - restore_cache:
           keys:
             - my-dependencies
+      - run: npm install
+      - run: npm run test
   
   analyse:
     executor: my-exec-env
     steps:
       - checkout
-      - run: npm audit
+       - run: npm audit fix
       - run:
           name: Tell of vulnerability
           command: echo Vulnerability Found
