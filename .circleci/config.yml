@@ -35,3 +35,14 @@ jobs:
           name: Tell of vulnerability
           command: echo Vulnerability Found
           when: on_fail
+
+workflow:
+  default:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - analyse:
+          requires:
+            - test
